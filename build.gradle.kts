@@ -25,7 +25,7 @@ jacoco {
 }
 
 val excludePackages: Iterable<String> = listOf(
-    "**/com/chaosprojectbr/usermanagerservice/application/config/**",
+    "**/com/chaosprojectbr/usermanagerservice/application/**",
     "**/com/chaosprojectbr/usermanagerservice/domain/entities/**"
 )
 
