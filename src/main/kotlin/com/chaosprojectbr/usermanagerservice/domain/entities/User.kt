@@ -10,7 +10,7 @@ data class User(
     val surname: String,
     val nickname: String,
     val email: String,
-    val password: String,
+    var password: String,
     val createdAt: LocalDateTime? = LocalDateTime.now(),
     val updatedAt: LocalDateTime? = LocalDateTime.now()
 ) {

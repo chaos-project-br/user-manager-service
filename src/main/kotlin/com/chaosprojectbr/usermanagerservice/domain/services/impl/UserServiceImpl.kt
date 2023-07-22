@@ -7,6 +7,7 @@ import com.chaosprojectbr.usermanagerservice.domain.repositories.UserRepository
 import com.chaosprojectbr.usermanagerservice.domain.services.UserService
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import org.springframework.security.crypto.bcrypt.BCrypt
 import org.springframework.stereotype.Service
 
 @Service
@@ -19,10 +20,9 @@ class UserServiceImpl(
             logger.error("E-mail to user=${it.name} already registered!")
             throw UserAlreadyExistsException()
         }
-
         return userRepository.save(
             User(
-                userRequest
+                userRequest.copy(password = BCrypt.hashpw(userRequest.password, BCrypt.gensalt(12)))
             )
         ).also {
             logger.info("User=${it.name} is registered with success!!!")
