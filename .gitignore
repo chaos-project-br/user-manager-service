@@ -64,3 +64,4 @@ out/
 ### VS Code
 
 .vscode/
+variables.local.env
