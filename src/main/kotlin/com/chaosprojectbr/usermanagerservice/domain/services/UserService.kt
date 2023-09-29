@@ -5,4 +5,6 @@ import com.chaosprojectbr.usermanagerservice.domain.entities.User
 
 interface UserService {
     fun create(userRequest: UserRequest): User
+
+    fun findByEmailAndPassword(email: String, password: String): User?
 }

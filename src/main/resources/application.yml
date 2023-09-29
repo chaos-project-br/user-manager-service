@@ -1,0 +1,47 @@
+### SERVER
+server:
+  port: ${server.port:8080}
+
+### SPRING
+spring:
+  output:
+    ansi:
+      enabled: ALWAYS
+  data:
+    mongodb:
+      uri: ${mongo.url:mongodb://root:toor@localhost:27017/admin}
+
+### LOGGING
+logging:
+  level:
+    root: INFO
+    com:
+      example: TRACE
+
+### ACTUATOR
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      base-path: /
+      exposure:
+        include: health, info
+
+### INFO ENDPOINT CONFIG
+info:
+  app:
+    name: "content-manager-service"
+    description: "Content manager service powered by Cyber Makers Network community"
+  organization: "Cyber Makers Network"
+  java-version: ${java.version}
+  java-vendor: ${java-vendor}
+
+### SWAGGER
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /docs
+    operationsSorter: method
